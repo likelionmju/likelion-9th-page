@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 from django.core.exceptions import ImproperlyConfigured
 import json
+import pymysql
+
+
+pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,8 +42,8 @@ SECRET_KEY = get_secret_value("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "127.0.0.1:8000",
-    "localhost:8000"
+    "127.0.0.1",
+    "localhost"
 ]
 
 
