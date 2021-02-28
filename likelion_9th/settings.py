@@ -29,7 +29,7 @@ def get_secret_value(key):
     try:
         return secrets[key]
     except KeyError:
-        error_msg = f"Set the {key} environment variable"
+        error_msg = f"Set the {key} variable"
         raise ImproperlyConfigured(error_msg)
 
 
@@ -40,7 +40,7 @@ def get_secret_value(key):
 SECRET_KEY = get_secret_value("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = get_secret_value("DEBUG")
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
@@ -67,6 +67,25 @@ INSTALLED_APPS = [
     "allauth.socialaccount.providers.google",
 
 ]
+
+SOCIALACCOUNT_PROVIDERS = {
+    "google": {
+        "SCOPE": [
+            "profile",
+            "email",
+            "openid"
+        ],
+        "AUTH_PARAMS": {
+            "access_type": "online",
+        },
+        "APP": {
+            "client_id": get_secret_value("GOOGLE_CLIENT_ID"),
+            "secret": get_secret_value("GOOGLE_SECRET_KEY"),
+            "key": get_secret_value("GOOGLE_APP_KEY"),
+        }
+    }
+}
+
 
 SITE_ID = 1
 
