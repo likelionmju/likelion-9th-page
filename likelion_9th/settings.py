@@ -14,6 +14,7 @@ from pathlib import Path
 from django.core.exceptions import ImproperlyConfigured
 import json
 import pymysql
+import os
 
 
 pymysql.install_as_MySQLdb()
@@ -55,6 +56,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    # 페이지 자동 새로고침
+    "livereload",
     'django.contrib.staticfiles',
 
     "django.contrib.sites",
@@ -63,8 +66,6 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
 
-    # 페이지 자동 새로고침
-    "livereload",
 ]
 
 SITE_ID = 1
@@ -82,6 +83,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'livereload.middleware.LiveReloadScript',
 ]
 
 ROOT_URLCONF = 'likelion_9th.urls'
@@ -157,5 +159,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+	os.path.join(BASE_DIR, 'assignment/static'),
+]
+STATIC_ROOT = os.path.join(BASE_DIR, ".static")
 
-STATIC_ROOT = Path.joinpath(BASE_DIR, "static")
+MEDIA_URL = '/media/'
+MEDIA_ROOT= os.path.join(BASE_DIR, '.media')
