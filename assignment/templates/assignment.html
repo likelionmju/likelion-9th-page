@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>과제제출</title>
+    <link rel="stylesheet" href="{% static 'css/assignment.css' %}">
 </head>
 <body>
-    안녕 멋사 9기 운영진 친구들!
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>마감기한</th>
+            <th>제출여부</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>첫과제입니다.</td>
+            <td>2020.02.23</td>
+            <td>🙅‍♂️</td>
+        </tr>
+    </table>
 </body>
 </html>

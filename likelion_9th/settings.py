@@ -56,6 +56,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    # 페이지 자동 새로고침
+    "livereload",
     'django.contrib.staticfiles',
 
     "django.contrib.sites",
@@ -67,8 +69,6 @@ INSTALLED_APPS = [
     # 생성한 APP 목록
     "assignment", # 과제 제출
 
-    # 페이지 자동 새로고침
-    "livereload",
 ]
 
 SITE_ID = 1
@@ -86,6 +86,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'livereload.middleware.LiveReloadScript',
 ]
 
 ROOT_URLCONF = 'likelion_9th.urls'
@@ -164,7 +165,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
 	os.path.join(BASE_DIR, 'assignment/static'),
 ]
-STATIC_ROOT = Path.joinpath(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, ".static")
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT= os.path.join(BASE_DIR, '.media')
