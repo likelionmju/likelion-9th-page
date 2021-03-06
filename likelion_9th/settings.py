@@ -68,6 +68,7 @@ INSTALLED_APPS = [
 
     # 생성한 APP 목록
     "assignment", # 과제 제출
+    "mycalendar", # 캘린더
 
 ]
 
