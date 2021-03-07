@@ -66,7 +66,10 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
 
-]
+
+  # 생성한 APP 목록
+    "assignment", # 과제 제출
+    "mycalendar", # 캘린더
 
 SOCIALACCOUNT_PROVIDERS = {
     "google": {
@@ -180,6 +183,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
 	os.path.join(BASE_DIR, 'assignment/static'),
+	os.path.join(BASE_DIR, 'mycalendar/static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, ".static")
 
