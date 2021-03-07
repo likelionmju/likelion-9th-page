@@ -165,6 +165,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
 	os.path.join(BASE_DIR, 'assignment/static'),
+	os.path.join(BASE_DIR, 'mycalendar/static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, ".static")
 
