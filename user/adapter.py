@@ -8,4 +8,4 @@ class LikelionAccountAdapter(DefaultSocialAccountAdapter):
 
     def save_user(self, request, sociallogin, form=None):
         user = super(LikelionAccountAdapter, self).save_user(request, sociallogin, form)
-        return LikelionUser.objects.create_user(user.pk, sociallogin.account.extra_data)
+        return LikelionUser.objects.get_or_create_user(user.pk, sociallogin.account.extra_data)

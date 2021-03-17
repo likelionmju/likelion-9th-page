@@ -1,26 +1,33 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 
 
 class LikelionUserManager(BaseUserManager):
 
-    def create_user(self, pk, extra_data):
+    def get_or_create_user(self, pk, extra_data):
         user = LikelionUser.objects.get(pk=pk)
         user.name = extra_data["name"]
         user.img = extra_data["picture"]
         user.save()
         return user
 
+    def create_superuser(self, username, password):
+        user = self.model(username=username)
+        user.set_password(password)
+        user.is_superuser = True
+        user.is_staff = True
+        user.save()
+        return user
+
 
 # Create your models here.
-class LikelionUser(AbstractBaseUser):
+class LikelionUser(AbstractBaseUser, PermissionsMixin):
     class Meta:
         db_table = "likelion_user"
 
     is_active = True
-    is_admin = False
-    is_superuser = False
-    is_staff = False
+    is_superuser = True
+    is_staff = True
 
     name = models.CharField(max_length=40, null=False, default="")
     img = models.URLField(default="")
