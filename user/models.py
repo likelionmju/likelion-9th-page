@@ -25,9 +25,9 @@ class LikelionUser(AbstractBaseUser, PermissionsMixin):
     class Meta:
         db_table = "likelion_user"
 
-    is_active = True
-    is_superuser = True
-    is_staff = True
+    is_active = models.BooleanField(null=False, default=True)
+    is_superuser = models.BooleanField(null=False, default=False)
+    is_staff = models.BooleanField(null=False, default=False)
 
     name = models.CharField(max_length=40, null=False, default="")
     img = models.URLField(default="")
