@@ -67,7 +67,8 @@ INSTALLED_APPS = [
     # 생성한 APP 목록
     "assignment",  # 과제 제출
     "mycalendar",  # 캘린더
-    "user"
+    "user",
+    "main_management" # main 페이지 + 운영진 소개
 
 ]
 
@@ -183,6 +184,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'assignment/static'),
     os.path.join(BASE_DIR, 'mycalendar/static'),
+    os.path.join(BASE_DIR, 'main_management/static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, ".static")
 

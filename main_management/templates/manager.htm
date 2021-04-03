@@ -1,0 +1,203 @@
+<!-- 운영진 소개 페이지 -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MJU LIKEILION :: MANAGEMENT TEAM</title>
+    <link rel="stylesheet" type="text/css" href="/main_management/static/css/manager.css">
+    <script src="/main_management/static/js/manager.js"></script>
+</head>
+
+<body>
+    <header> </header>
+
+    <div>
+        <p class="title"> MANAGEMENT TEAM </p>
+    </div>
+    <br>
+
+    <form id="ma_Event" method="POST" name="ma_hide_and_show_form">
+        <input id="name_btn" name="ma_hide_btn" type="button" value="곽민아" onclick="view(this.value);">
+    </form>
+    <form id="yb_Event" method="POST" name="yb_hide_and_show_form">
+        <input id="name_btn" name="yb_hide_btn" type="button" value="김예빈" onclick="view(this.value);">
+    </form>
+    <form id="sj_Event" method="POST" name="sj_hide_and_show_form">
+        <input id="name_btn" name="sj_hide_btn" type="button" value="박성제" onclick="view(this.value);">
+    </form>
+    <form id="sh_Event" method="POST" name="sh_hide_and_show_form">
+        <input id="name_btn" name="sh_hide_btn" type="button" value="이서현" onclick="view(this.value);">
+    </form>
+    <form id="jh_Event" method="POST" name="jh_hide_and_show_form">
+        <input id="name_btn" name="jh_hide_btn" type="button" value="한준혁" onclick="view(this.value);">
+    </form>
+
+    <div class=int>
+        <!-- 곽민아 -->
+        <div id="ma_display_btn" style="display: none;">
+            <div class="pic_con">
+                <div class="pic1">
+                    <img src="/main_management/static/images/mem_pic/min.png">
+                </div>
+                <div class="pic2_con">
+                    <div class="pic2">
+                        <img src="/main_management/static/images/mem_pic/min.png">
+                    </div>
+                    <div class="pic2">
+                        <img src="/main_management/static/images/mem_pic/min1.png">
+                    </div>
+                </div>
+                <div class="pic2_con">
+                    <div class="pic2">
+                        <img src="/main_management/static/images/mem_pic/min2.png">
+                    </div>
+                    <div class="pic2">
+                        <img src="/main_management/static/images/mem_pic/min3.png">
+                    </div>
+                </div>
+
+                <div class=introduction>
+                    <p class=name>곽 민 아</p>
+                    <p>생일 :</p>
+                    <p>성별 : </p>
+                    <p>기본능력 :</p>
+                    <p>좋아하는 선물</p>
+                </div>
+            </div>
+        </div>
+        <!-- 김예빈 -->
+        <div id="yb_display_btn" style="display: none;">
+            <div class="pic_con">
+                <div class="pic1">
+                    <img src="/main_management/static/images/mem_pic/ye.png">
+                </div>
+                <div class="pic2_con">
+                    <div class="pic2">
+                        <img src="/main_management/static/images/mem_pic/ye1.png">
+                    </div>
+                    <div class="pic2">
+                        <img src="/main_management/static/images/mem_pic/ye2.png">
+                    </div>
+                </div>
+                <div class="pic2_con">
+                    <div class="pic2">
+                        <img src="/main_management/static/images/mem_pic/ye3.png">
+                    </div>
+                    <div class="pic2">
+                        <img src="/main_management/static/images/mem_pic/ye4.png">
+                    </div>
+                </div>
+
+                <div class=introduction>
+                    <p class=name>김 예 빈</p>
+                    <p>생일 :</p>
+                    <p>성별 : </p>
+                    <p>기본능력 :</p>
+                    <p>좋아하는 선물</p>
+                </div>
+            </div>
+        </div>
+        <!-- 박성제 -->
+        <div id="sj_display_btn" style="display: none;">
+            <div class="pic_con">
+                <div class="pic1">
+                    <img src="/main_management/static/images/mem_pic/ye.png">
+                </div>
+                <div class="pic2_con">
+                    <div class="pic2">
+                        <img src="/main_management/static/images/mem_pic/sj1.png">
+                    </div>
+                    <div class="pic2">
+                        <img src="/main_management/static/images/mem_pic/sj1.png">
+                    </div>
+                </div>
+                <div class="pic2_con">
+                    <div class="pic2">
+                        <img src="/main_management/static/images/mem_pic/sj2.png">
+                    </div>
+                    <div class="pic2">
+                        <img src="/main_management/static/images/mem_pic/sj3.png">
+                    </div>
+                </div>
+
+                <div class=introduction>
+                    <p class=name>박 성 제</p>
+                    <p>생일 :</p>
+                    <p>성별 : </p>
+                    <p>기본능력 :</p>
+                    <p>좋아하는 선물</p>
+                </div>
+            </div>
+        </div>
+        <!-- 이서현 -->
+        <div id="sh_display_btn" style="display: none;">
+            <div class="pic_con">
+                <div class="pic1">
+                    <img src="/main_management/static/images/mem_pic/seo.png">
+                </div>
+                <div class="pic2_con">
+                    <div class="pic2">
+                        <img src="/main_management/static/images/mem_pic/seo1.png">
+                    </div>
+                    <div class="pic2">
+                        <img src="/main_management/static/images/mem_pic/seo2.png">
+                    </div>
+                </div>
+                <div class="pic2_con">
+                    <div class="pic2">
+                        <img src="/main_management/static/images/mem_pic/seo3.png">
+                    </div>
+                    <div class="pic2">
+                        <img src="/main_management/static/images/mem_pic/seo.png">
+                    </div>
+                </div>
+
+                <div class=introduction>
+                    <p class=name>이 서 현</p>
+                    <p>생일 :</p>
+                    <p>성별 : </p>
+                    <p>기본능력 :</p>
+                    <p>좋아하는 선물</p>
+                </div>
+            </div>
+        </div>
+        <!-- 한준혁 -->
+        <div id="jh_display_btn" style="display: none;">
+            <div class="pic_con">
+                <div class="pic1">
+                    <img src="/main_management/static/images/mem_pic/jun.png">
+                </div>
+                <div class="pic2_con">
+                    <div class="pic2">
+                        <img src="/main_management/static/images/mem_pic/jun1.png">
+                    </div>
+                    <div class="pic2">
+                        <img src="/main_management/static/images/mem_pic/jun2.png">
+                    </div>
+                </div>
+                <div class="pic2_con">
+                    <div class="pic2">
+                        <img src="/main_management/static/images/mem_pic/jun3.png">
+                    </div>
+                    <div class="pic2">
+                        <img src="/main_management/static/images/mem_pic/jun4.png">
+                    </div>
+                </div>
+
+                <div class=introduction>
+                    <p class=name>한 준 혁</p>
+                    <p>생일 :</p>
+                    <p>성별 : </p>
+                    <p>기본능력 :</p>
+                    <p>좋아하는 선물</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer></footer>
+</body>
+
+</html>
