@@ -1,15 +1,41 @@
 {% load socialaccount %}
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>유저</title>
+    <link rel="stylesheet" href="{% static "user/css/login.css" %}">
 </head>
 <body>
-<a href="{% provider_login_url "google" %}">구글 로그인</a>
-{% if user.is_authenticated %}
-    <img src="{{ user.img }}" alt="{{ user.name }}">
-    {{ user.name }}
-{% endif %}
+<div class="intro-detail">
+    <div class="title">멋쟁이사자처럼 X 명지대(서울)</div>
+    <div class="content">
+        <div class="period">
+            <span class="txt">
+                프로그래밍에 대한 열정과<br/>
+                자신만의 아이디어를 가지고 활동한지
+            </span>
+            <span class="num">3</span>
+            <span class="txt"><br/>년째</span>
+        </div>
+        <div class="people">
+            <span class="num">5</span>
+            <span class="txt"><br/>명의 9기 운영진</span>
+        </div>
+        <div class="session-start">
+            <span class="txt">
+                2021 정규 세션,<br/>
+                매주 일요일
+            </span>
+            <span class="num">12</span>
+            <span class="txt"><br/>시 부터</span>
+        </div>
+        <div class="session-end">
+            <span class="num">14</span>
+            <span class="txt"><br/>시 까지</span>
+        </div>
+    </div>
+</div>
 </body>
 </html>
