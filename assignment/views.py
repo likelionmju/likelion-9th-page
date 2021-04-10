@@ -1,12 +1,7 @@
 from django.shortcuts import render
 
+
 # Create your views here.
 
 def assignment(request):
     return render(request, 'assignment.html')
-
-def create(request):
-    return render(request, 'create.html')
-
-def detail(request):
-    return render(request, 'detail.html')

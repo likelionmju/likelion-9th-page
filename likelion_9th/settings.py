@@ -16,7 +16,6 @@ import json
 import pymysql
 import os
 
-
 pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -29,7 +28,7 @@ def get_secret_value(key):
     try:
         return secrets[key]
     except KeyError:
-        error_msg = f"Set the {key} environment variable"
+        error_msg = f"Set the {key} variable"
         raise ImproperlyConfigured(error_msg)
 
 
@@ -40,13 +39,12 @@ def get_secret_value(key):
 SECRET_KEY = get_secret_value("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = get_secret_value("DEBUG")
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost"
 ]
-
 
 # Application definition
 
@@ -67,9 +65,33 @@ INSTALLED_APPS = [
     "allauth.socialaccount.providers.google",
 
     # 생성한 APP 목록
-    "assignment", # 과제 제출
+    "assignment",  # 과제 제출
+    "mycalendar",  # 캘린더
+    "user"
 
 ]
+
+LOGIN_REDIRECT_URL = "/user"
+AUTH_USER_MODEL = "user.LikelionUser"
+SOCIALACCOUNT_ADAPTER = "user.adapter.LikelionAccountAdapter"
+
+SOCIALACCOUNT_PROVIDERS = {
+    "google": {
+        "SCOPE": [
+            "profile",
+            "email",
+            "openid"
+        ],
+        "AUTH_PARAMS": {
+            "access_type": "online",
+        },
+        "APP": {
+            "client_id": get_secret_value("GOOGLE_CLIENT_ID"),
+            "secret": get_secret_value("GOOGLE_SECRET_KEY"),
+            "key": get_secret_value("GOOGLE_APP_KEY"),
+        }
+    }
+}
 
 SITE_ID = 1
 
@@ -109,7 +131,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'likelion_9th.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -123,7 +144,6 @@ DATABASES = {
         "PORT": get_secret_value("DB_PORT"),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -143,7 +163,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -157,15 +176,15 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-	os.path.join(BASE_DIR, 'assignment/static'),
+    os.path.join(BASE_DIR, 'assignment/static'),
+    os.path.join(BASE_DIR, 'mycalendar/static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, ".static")
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT= os.path.join(BASE_DIR, '.media')
+MEDIA_ROOT = os.path.join(BASE_DIR, '.media')
